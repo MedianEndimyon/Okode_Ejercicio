@@ -1,0 +1,61 @@
+.buscador {
+  width: 300px;
+}
+
+.divBuscador {
+  margin-left: 10px;
+  margin-top: 10px;
+  text-align: left
+}
+
+.buttonSearch{
+  padding: 5px;
+  margin: 5px;
+}
+
+.example-listbox-container {
+  display: block;
+  width: 600px;
+  border: 1px solid #673ab7;
+  margin: 10px;
+}
+
+.example-listbox-invalid {
+  border-color: red;
+}
+
+.example-listbox-label {
+  display: block;
+  background-color: #673ab7;
+  color: white;
+  padding: 5px;
+}
+
+.example-listbox {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 200px;
+  overflow: auto;
+}
+
+.example-option {
+  position: relative;
+  padding: 5px 5px 5px 25px;
+}
+
+.example-option[aria-selected='true']::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  position: absolute;
+  left: 2px;
+}
+
+.example-option:focus {
+  background: #673ab7;
+  color: white;
+}
+
