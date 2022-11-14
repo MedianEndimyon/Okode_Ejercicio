@@ -1,23 +1,72 @@
-.buscador {
-  width: 300px;
+
+
+.content {
+  padding: 10px;
+  display:flex;
 }
 
 .divBuscador {
+  display: flex;
   margin-left: 10px;
-  margin-top: 10px;
-  text-align: left
+  justify-content: right;
+  text-align: left;
+}
+
+img {
+  width:100%;
+  height:100%;
+}
+
+.divResultList {
+  width:30%;
+}
+
+.divImagen{
+  height: 250px;
+  width: 200px;
+  border: 1px solid #673ab7;
+  margin: 10px;
+}
+
+.row {
+  display: flex;
+}
+
+.divDescripcionTotal{
+  margin-top: 75px;
+  margin-left: 10px;
+  border: 1px solid #673ab7;
+  width: 70%;
+}
+
+.textobuscador{
+  padding-bottom: 0px !important;
+}
+
+.buscador {
+  width: 300px;
+  height: 75px;
+}
+
+.divDescripcion{
+  border: 1px solid #673ab7;
+  margin: 10px;
+  width: 70%;
+  padding: 10px;
+}
+
+.buscadorbutton{
+  margin-bottom: 1.34em;
+  margin-left: 10px;
 }
 
 .buttonSearch{
-  padding: 5px;
-  margin: 5px;
+  margin-bottom: 1.34em;
 }
 
 .example-listbox-container {
-  display: block;
-  width: 600px;
+  height:300px;
   border: 1px solid #673ab7;
-  margin: 10px;
 }
 
 .example-listbox-invalid {
@@ -32,11 +81,8 @@
 }
 
 .example-listbox {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  height: 200px;
-  overflow: auto;
+  height: 270px;
+  overflow-y: scroll;
 }
 
 .example-option {

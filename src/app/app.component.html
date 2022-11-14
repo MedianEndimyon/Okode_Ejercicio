@@ -1,29 +1,53 @@
-<div>
-</div>
-<div class="divBuscador">
-    <mat-form-field class="buscador" appearance="fill">
-        <mat-label>{{searchText}}</mat-label>
-        <input matInput #input class="textobuscador" type="text" [(ngModel)]="Limpiar" (keyup)="getValue(input.value)">
-        <button class="buttonSearch" *ngIf="Limpiar" matSuffix mat-icon-button aria-label="Clear" (click)="Limpiar=''">
-        <mat-icon>close</mat-icon>
-        </button> 
-    </mat-form-field>
-    <button mat-raised-button color="primary" (click)="getPeliculas()">
-    <mat-icon>search</mat-icon>
-    </button>
-</div>
-<div class="example-listbox-container">
-    <label class="example-listbox-label" id="listbox-label">
-        Listado de Películas
-    </label>
-    <ul cdkListbox
-        aria-labelledby="listbox-label"
-        class="example-listbox">
-        <li *ngFor="let titulo of titulosPeliculas"
-            [cdkOption]="titulo"
-             class="example-option">
-            {{titulo}}
-        </li>
-    </ul>
+
+<div class="content">
+    <div class="divResultList">
+        <div class="divBuscador">
+            <mat-form-field class="buscador" appearance="fill">
+                <mat-label>{{searchText}}</mat-label>
+                <input matInput #input class="textobuscador" type="text" [(ngModel)]="Limpiar" (keyup)="getValue(input.value)">
+                <button class="buttonSearch" *ngIf="Limpiar" matSuffix mat-icon-button aria-label="Clear" (click)="Limpiar=''">
+                <mat-icon>close</mat-icon>
+                </button> 
+            </mat-form-field>
+            <button class="buscadorbutton" mat-raised-button color="primary" (click)="getPeliculas()">
+            <mat-icon>search</mat-icon>
+            </button>
+        </div>
+       
+        <div class="example-listbox-container">
+            <label class="example-listbox-label" id="listbox-label">
+                Listado de Películas
+            </label>
+            <div cdkListbox
+                aria-labelledby="listbox-label"
+                class="example-listbox"
+                [(ngModel)]="tituloSeleccionado">
+                <div *ngFor="let titulo of ListadoPeliculas"
+                    [cdkOption]="titulo"
+                    (click)="getDetalles()"
+                    class="example-option">
+                    {{titulo}}
+                </div>
+            </div>
+            </div>
+        </div>
+    <div class="divDescripcionTotal">
+        <label class="example-listbox-label">
+           Descripción de la Película
+        </label>
+        <div class="row">
+            <div class="divImagen">
+                <img [src] = "poster">
+            </div>
+            <div class="divDescripcion">
+                <p><label>Título: {{titulo}}</label></p>
+                <p><label>Resumen: {{resumen}}</label></p>
+                <p><label>Fecha de Salida: {{fechaSalida}}</label></p>
+                <p><label>Duración: {{duracion}}</label></p>
+                <p><label>Actores: {{actores}}</label></p>
+                <p><label>Idiomas: {{idiomas}}</label></p>
+            </div>
+    </div>
+    </div>
 </div>
 

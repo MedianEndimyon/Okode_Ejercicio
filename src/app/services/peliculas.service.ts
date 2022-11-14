@@ -15,4 +15,10 @@ export class PeliculasService {
         let header = new HttpHeaders()
         return this.http.get(url);
      }
+
+     getDetalle(id:String){
+        let url = 'https://www.omdbapi.com/?t=' + id + '&apikey=c2fe23d7';
+        let header = new HttpHeaders()
+        return this.http.get(url);
+     }
 }

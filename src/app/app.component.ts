@@ -16,8 +16,18 @@ export class AppComponent {
 
   id = '';
   public peliculas: Array<any> = [];
-  public titulosPeliculas: Array<any> = [];
-  
+  public ListadoPeliculas: Array<any> = [];
+  public tituloSeleccionado: Array<any> = [];
+
+  /* Variables Descriptor */
+  public poster = '';
+  public titulo = '';
+  public resumen = '';
+  public actores = '';
+  public fechaSalida = '';
+  public duracion = '';
+  public idiomas = '';
+
 
   constructor(private peliculaService:PeliculasService){
 
@@ -28,19 +38,35 @@ export class AppComponent {
   }
 
   getPeliculas(){
-    this.titulosPeliculas = []
+    this.ListadoPeliculas = []
     this.peliculas = []
     this.peliculaService.getPelículas(this.id).subscribe((resp:any)=>{
+      console.log(resp)
       this.peliculas = resp['Search']
-      this.getTitulos()
+      this.getListado()
+      console.log(this.peliculas)
     })
   
   }
 
-  getTitulos(){
+  getListado(){
     this.peliculas.forEach(element => {
-      this.titulosPeliculas.push(JSON.stringify(element['Title']))
+      this.ListadoPeliculas.push(JSON.stringify(element['Title']))
     });
+  }
+
+  getDetalles(){
+      let peliculaSeleccionada = this.tituloSeleccionado[0];
+      this.peliculaService.getDetalle(peliculaSeleccionada).subscribe((resp:any)=>{
+        console.log(resp);
+        this.poster = resp['Poster']
+        this.titulo = resp['Title']
+        this.resumen = resp['Plot']
+        this.fechaSalida = resp['Released']
+        this.duracion = resp['Runtime']
+        this.actores = resp['Actors']
+        this.idiomas = resp['Language']
+      })
   }
 
 }
